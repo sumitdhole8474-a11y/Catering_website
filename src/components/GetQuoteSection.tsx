@@ -5,6 +5,7 @@ import { Star, CheckCircle2, ChevronLeft, Utensils, Plus, Minus, RotateCcw, File
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 
+// ... MENU_DATA and EVENT_TYPES remain the same ...
 const MENU_DATA = [
   {
     category: "Wedding Thali",
@@ -117,7 +118,8 @@ const BookingForm = () => {
 
   const loadImage = (url: string): Promise<string> => {
     return new Promise((resolve, reject) => {
-      const img = new Image();
+      const img = new globalThis.Image();
+      img.crossOrigin = 'Anonymous';
       img.onload = () => {
         const canvas = document.createElement('canvas');
         canvas.width = img.width;
@@ -139,14 +141,13 @@ const BookingForm = () => {
     // --- Header Section ---
     try {
       const imgData = await loadImage('/images/Logos.png');
-      // Positioned logo on the left
       doc.addImage(imgData, 'PNG', 14, 10, 25, 25);
     } catch (e) {
       console.warn("Logo not found at path");
     }
 
     doc.setFontSize(22);
-    doc.setTextColor(234, 88, 12); // Orange Color
+    doc.setTextColor(234, 88, 12);
     doc.setFont("helvetica", "bold");
     doc.text("GURUKRUPA SAMRAT CATERERS", 45, 22); 
     
@@ -156,11 +157,10 @@ const BookingForm = () => {
     doc.text("Premium Event Catering & Traditional Vegetarian Cuisine", 45, 28); 
     doc.text("Nashik, Maharashtra, India | Contact: +91 9876543210", 45, 33); 
 
-    // --- Divider Line ---
     doc.setDrawColor(234, 88, 12);
     doc.line(14, 38, pageWidth - 14, 38);
 
-    // --- Customer Details Table ---
+    // --- FIX: Customer Details Table using cellWidth instead of width ---
     autoTable(doc, {
       startY: 45,
       body: [
@@ -171,8 +171,8 @@ const BookingForm = () => {
       theme: 'plain',
       styles: { fontSize: 10, cellPadding: 2 },
       columnStyles: { 
-        0: { fontStyle: 'bold', width: 35 },
-        2: { fontStyle: 'bold', width: 35 }
+        0: { fontStyle: 'bold', cellWidth: 35 }, // Changed width to cellWidth
+        2: { fontStyle: 'bold', cellWidth: 35 }  // Changed width to cellWidth
       }
     });
 
@@ -184,8 +184,10 @@ const BookingForm = () => {
       `Rs. ${item.price * Number(formData.guests)}`
     ]);
 
+    const lastTableY = (doc as any).lastAutoTable.finalY;
+
     autoTable(doc, {
-      startY: (doc as any).lastAutoTable.finalY + 10,
+      startY: lastTableY + 10,
       head: [['Menu Item Selected', 'Rate per Plate', 'Qty', 'Total Amount']],
       body: tableRows,
       headStyles: { fillColor: [234, 88, 12], textColor: [255, 255, 255], fontStyle: 'bold' },
@@ -216,6 +218,7 @@ const BookingForm = () => {
     doc.save(`Invoice_${formData.name || 'Booking'}.pdf`);
   };
 
+  // ... Rendering logic remains the same ...
   if (step === 3) {
     return (
       <div className="min-h-screen bg-orange-50 p-4 md:p-8 flex flex-col items-center justify-center">
@@ -327,10 +330,10 @@ const BookingForm = () => {
     <div className="min-h-screen bg-orange-50 p-4 md:p-8 flex items-center justify-center">
       <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="bg-white rounded-[2.5rem] overflow-hidden shadow-xl p-10 space-y-6">
-           <img src="https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=2070&auto=format&fit=crop" alt="Catering" className="rounded-3xl h-64 w-full object-cover" />
-           <h1 className="text-3xl font-bold text-orange-600">Gurukrupa Samrat Catering</h1>
-           <p className="text-gray-600 italic">"Premium vegetarian catering with hygiene & tradition."</p>
-           <ul className="space-y-4">
+            <img src="https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=2070&auto=format&fit=crop" alt="Catering" className="rounded-3xl h-64 w-full object-cover" />
+            <h1 className="text-3xl font-bold text-orange-600">Gurukrupa Samrat Catering</h1>
+            <p className="text-gray-600 italic">"Premium vegetarian catering with hygiene & tradition."</p>
+            <ul className="space-y-4">
               {["25+ Expert Chefs", "500+ Events Served", "Custom Menus"].map((item) => (
                 <li key={item} className="flex items-center gap-3 text-gray-700 font-semibold text-lg">
                   <Star className="fill-orange-500 text-orange-500 w-5 h-5" /> {item}
