@@ -11,7 +11,11 @@ export default function BlogGrid() {
           {blogs.slice(0, 9).map((blog, i) => (
             <BlogCard
               key={blog.id}
-              {...blog} // This spreads all properties EXCEPT comments
+              title={blog.title}
+              excerpt={blog.excerpt}
+              image={blog.image}
+              date={blog.date}
+              slug={blog.slug}
               delay={i * 120}
             />
           ))}
