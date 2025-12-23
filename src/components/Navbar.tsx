@@ -45,12 +45,7 @@ export default function Navbar() {
 
             {/* DESKTOP NAV */}
             <nav
-              className="hidden lg:flex items-center
-              bg-gray-50/60 backdrop-blur-md
-              rounded-full px-6 py-2
-              border border-orange-300/70
-              shadow-[0_0_0_1px_rgba(251,146,60,0.25)]"
-            >
+              className="hidden lg:flex items-center bg-gray-50/60 backdrop-blur-md  rounded-full px-6 py-2  border border-orange-300/70 shadow-[0_0_0_1px_rgba(251,146,60,0.25)]" >
               {[
                 { name: "Home", path: "/" },
                 { name: "About", path: "/about" },
@@ -64,12 +59,7 @@ export default function Navbar() {
                   {pathname === item.path && (
                     <motion.span
                       layoutId="pill-bg"
-                      className="absolute inset-0 bg-white rounded-full
-                      border border-orange-400
-                      ring-1 ring-orange-200/60
-                      shadow-sm -z-10"
-                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                    />
+                      className="absolute inset-0 bg-white rounded-full  border border-orange-400  ring-1 ring-orange-200/60 shadow-sm -z-10" transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}  />
                   )}
                 </Link>
               ))}
@@ -83,11 +73,7 @@ export default function Navbar() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="flex items-center gap-4 bg-[#0b1d39] text-white
-                  pl-6 pr-2 py-2 rounded-full
-                  font-bold text-xs uppercase tracking-widest
-                  hover:bg-red-600 transition-all shadow-xl"
-                >
+                  className="flex items-center gap-4 bg-[#0b1d39] text-white pl-6 pr-2 py-2 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-red-600 transition-all shadow-xl"  >
                   Get A Quote
                   <div className="bg-white/10 p-2 rounded-full">
                     <ChevronRight size={16} />
@@ -100,24 +86,15 @@ export default function Navbar() {
                 <motion.button
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-11 h-11 flex items-center justify-center
-                  rounded-full bg-gray-100 text-[#0b1d39]
-                  hover:bg-red-600 hover:text-white
-                  transition-all shadow-md"
-                >
+                  className="w-11 h-11 flex items-center justify-center  rounded-full bg-gray-100 text-[#0b1d39]  hover:bg-red-600 hover:text-white  transition-all shadow-md" >
                   <HelpCircle size={20} />
 
-                  <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-600
-                  text-white text-[10px] font-bold rounded-full
-                  flex items-center justify-center animate-pulse">
+                  <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-600 text-white text-[10px] font-bold rounded-full  flex items-center justify-center animate-pulse">
                     ?
                   </span>
                 </motion.button>
 
-                <span className="absolute top-full mt-2 left-1/2 -translate-x-1/2
-                opacity-0 group-hover:opacity-100
-                bg-black text-white text-[10px]
-                px-2 py-1 rounded transition-opacity">
+                <span className="absolute top-full mt-2 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-black text-white text-[10px]  px-2 py-1 rounded transition-opacity">
                   FAQs
                 </span>
               </Link>
@@ -127,9 +104,7 @@ export default function Navbar() {
             {/* MOBILE TOGGLE */}
             <button
               onClick={() => setOpen(!open)}
-              className="lg:hidden w-12 h-12 flex items-center justify-center
-              rounded-2xl bg-gray-50 text-[#0b1d39]"
-            >
+              className="lg:hidden w-12 h-12 flex items-center justify-center rounded-2xl bg-gray-50 text-[#0b1d39]">
               {open ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
@@ -157,8 +132,7 @@ export default function Navbar() {
 
                 <button
                   onClick={() => setOpen(false)}
-                  className="text-white p-2 border border-white/20 rounded-full"
-                >
+                  className="text-white p-2 border border-white/20 rounded-full">
                   <X size={30} />
                 </button>
               </div>
@@ -181,9 +155,7 @@ export default function Navbar() {
                     <Link
                       href={item.path}
                       onClick={() => setOpen(false)}
-                      className="text-4xl font-black text-white
-                      hover:text-orange-400 transition-colors"
-                    >
+                      className="text-4xl font-black text-white hover:text-orange-400 transition-colors"  >
                       {item.label}
                     </Link>
                   </motion.div>
@@ -192,9 +164,7 @@ export default function Navbar() {
 
               <div className="mt-auto pb-12">
                 <Link href="/get-quote" onClick={() => setOpen(false)}>
-                  <button className="w-full bg-red-600 text-white py-6
-                  rounded-3xl text-xl font-black uppercase
-                  tracking-widest shadow-2xl">
+                  <button className="w-full bg-red-600 text-white py-6 rounded-3xl text-xl font-black uppercase tracking-widest shadow-2xl">
                     Get A Quote
                   </button>
                 </Link>
