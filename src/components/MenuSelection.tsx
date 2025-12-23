@@ -1,9 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
-/* Animation Variants */
-const container = {
+/* FIX: Added Variants type to satisfy the TypeScript compiler */
+/* This prevents the "string is not assignable to Easing" error */
+const container: Variants = {
   hidden: {},
   visible: {
     transition: {
@@ -12,12 +13,15 @@ const container = {
   },
 };
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 25 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: "easeOut" },
+    transition: { 
+      duration: 0.5, 
+      ease: "easeOut" // Now recognized as a valid Easing type
+    },
   },
 };
 
@@ -25,67 +29,31 @@ const sections = [
   {
     title: "Breakfast",
     items: [
-      "UPMA - SEV",
-      "MISAL PAV",
-      "JALEBI - FAFDA",
-      "SABUDANA KHICHDI",
-      "CHHOLE SAMOSA",
-      "KANDA POHE",
-      "GHAVAN",
-      "IDLI",
-      "PATTICE",
-      "TEA / COFFEE",
-      "SEERA SEERA",
-      "BREAD BUTTER",
-      "MEDU WADA",
-      "BATATA WADA",
-      "GREEN TEA",
+      "UPMA - SEV", "MISAL PAV", "JALEBI - FAFDA", "SABUDANA KHICHDI",
+      "CHHOLE SAMOSA", "KANDA POHE", "GHAVAN", "IDLI", "PATTICE",
+      "TEA / COFFEE", "SEERA SEERA", "BREAD BUTTER", "MEDU WADA",
+      "BATATA WADA", "GREEN TEA",
     ],
   },
   {
     title: "Mocktails",
     items: [
-      "FLAVOURED MODITHO",
-      "LITCHI MARGARITA",
-      "LAVEENA",
-      "VANILLA",
-      "DEVILS DELIGHT",
-      "DARK KNIGHT",
-      "BOOM RANG",
-      "SWEET SIXTEEN",
-      "COOL BLUE",
-      "GREEN BERRY",
-      "KHUS COOLER",
-      "BLUE LAGOON",
-      "PINA COLADA",
-      "DATES MAGIC",
-      "GREEN TEA",
+      "FLAVOURED MODITHO", "LITCHI MARGARITA", "LAVEENA", "VANILLA",
+      "DEVILS DELIGHT", "DARK KNIGHT", "BOOM RANG", "SWEET SIXTEEN",
+      "COOL BLUE", "GREEN BERRY", "KHUS COOLER", "BLUE LAGOON",
+      "PINA COLADA", "DATES MAGIC", "GREEN TEA",
     ],
   },
   {
     title: "Welcome Drinks",
     items: [
-      "PINEAPPLE BLOSSOM",
-      "STRAWBERRY BLOSSOM",
-      "ORANGE-CHASKA",
-      "KIWI PINEAPPLE",
-      "MUSK MELON",
-      "COCKTAIL",
-      "COCONUT PUNCH",
-      "LICHI BLOSSOM",
-      "PLUM PEACH BLOSSOM",
-      "PERU PINEAPPLE",
-      "FRUIT PUNCH",
-      "SOHAN MELON",
-      "TULSIDHARA",
-      "GRAPES GLORRY",
-      "ORANGE BLOSSOM",
-      "PERU BLOSSOM",
-      "FRESH PINEAPPLE",
-      "WATER MELON",
-      "GANGA HAMUNA",
+      "PINEAPPLE BLOSSOM", "STRAWBERRY BLOSSOM", "ORANGE-CHASKA",
+      "KIWI PINEAPPLE", "MUSK MELON", "COCKTAIL", "COCONUT PUNCH",
+      "LICHI BLOSSOM", "PLUM PEACH BLOSSOM", "PERU PINEAPPLE",
+      "FRUIT PUNCH", "SOHAN MELON", "TULSIDHARA", "GRAPES GLORRY",
+      "ORANGE BLOSSOM", "PERU BLOSSOM", "FRESH PINEAPPLE",
+      "WATER MELON", "GANGA HAMUNA", "GREEN GARDEN",
       "SANGRELLA (MUSKMELON, WATERMELON, ORANGE)",
-      "GREEN GARDEN",
     ],
   },
 ];
@@ -152,12 +120,12 @@ export default function MenuSelection() {
           ))}
         </div>
       </div>
-      <div className="flex justify-center items-center mt-8 ">
-      <a href="#">
-        <button className="bg-red-600 px-7 py-2 rounded-2xl cursor-pointer mx-auto text-white text-xl hover:bg-red-400 ">
+
+      {/* SUBMIT BUTTON */}
+      <div className="flex justify-center items-center mt-12">
+        <button className="bg-red-600 px-10 py-3 rounded-2xl cursor-pointer text-white text-xl font-bold hover:bg-red-700 transition-colors shadow-lg active:scale-95">
           Submit
         </button>
-      </a>
       </div>
     </section>
   );
