@@ -5,7 +5,7 @@ import Link from "next/link";
 import { blogs } from "@/components/data/blogs ";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { useParams } from "next/navigation";
-import { Calendar, Clock, Share2, ArrowLeft, ChevronRight } from "lucide-react";
+import { Calendar, Clock, Share2, ArrowLeft } from "lucide-react";
 
 export default function BlogDetailPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -24,10 +24,10 @@ export default function BlogDetailPage() {
 
   return (
     <article className="bg-[#fffcf9] min-h-screen pb-24 selection:bg-orange-200">
-      {/* ⚡ READING PROGRESS BAR */}
+      {/* READING PROGRESS BAR */}
       <motion.div className="fixed top-0 left-0 right-0 h-1.5 bg-orange-500 z-[100] origin-left" style={{ scaleX }} />
 
-      {/* 🧡 SOFT GRADIENT HERO */}
+      {/* HERO SECTION */}
       <div className="relative h-[65vh] w-full flex items-center justify-center overflow-hidden bg-orange-50">
         <motion.div 
           initial={{ scale: 1.1 }}
@@ -45,7 +45,7 @@ export default function BlogDetailPage() {
             animate={{ opacity: 1, y: 0 }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500 text-white text-xs font-black uppercase tracking-widest mb-6 shadow-lg shadow-orange-200"
           >
-            <Calendar size={14} /> 2025 Catering Trends
+            <Calendar size={14} /> {blog.date}
           </motion.div>
           
           <motion.h1 
@@ -66,11 +66,12 @@ export default function BlogDetailPage() {
             <span className="flex items-center gap-2"><Clock size={18} className="text-orange-500" /> 5 Min Read</span>
             <span className="h-4 w-px bg-orange-200" />
             <button className="flex items-center gap-2 hover:text-orange-600 transition"><Share2 size={18} /> Share</button>
+            {/* REMOVED ANY COMMENT COUNT REFERENCES HERE */}
           </motion.div>
         </div>
       </div>
 
-      {/* 🧠 CONTENT SECTION */}
+      {/* CONTENT SECTION */}
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 -mt-20 relative z-20">
         
         {/* MAIN ARTICLE BODY */}
@@ -93,9 +94,10 @@ export default function BlogDetailPage() {
               dangerouslySetInnerHTML={{ __html: blog.content }} 
             />
           </div>
+          {/* REMOVED COMMENT FORM OR COMMENT LIST SECTION FROM BOTTOM OF ARTICLE */}
         </motion.div>
 
-        {/* ✨ REIMAGINED RECOMMENDED READING */}
+        {/* SIDEBAR */}
         <aside className="lg:col-span-4 space-y-8">
           <div className="sticky top-28 space-y-8">
             <div className="bg-[#0b1d39] text-white p-8 rounded-[32px] shadow-2xl overflow-hidden relative group">
@@ -130,12 +132,12 @@ export default function BlogDetailPage() {
                 </div>
             </div>
 
-            {/* CALL TO ACTION BOX */}
+            {/* CTA BOX */}
             <div className="bg-orange-500 p-8 rounded-[32px] text-white shadow-xl shadow-orange-200 relative overflow-hidden">
                 <div className="relative z-10">
-                  <h4 className="text-xl font-black mb-4 leading-tight">Planning a special event in Mumbai?</h4>
+                  <h4 className="text-xl font-black mb-4 leading-tight">Planning a special event?</h4>
                   <p className="text-white/80 text-sm mb-6">Let Gurukrupa Samrat handle the delicious details.</p>
-                  <Link href="/get-quote" className="w-full bg-white text-orange-600 py-4 rounded-2xl font-black text-center block hover:bg-[#0b1d39] hover:text-white transition-all shadow-lg">
+                  <Link href="/contact" className="w-full bg-white text-orange-600 py-4 rounded-2xl font-black text-center block hover:bg-[#0b1d39] hover:text-white transition-all shadow-lg">
                     Get A Quote Now
                   </Link>
                 </div>

@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+// THE FIX: The interface now only contains what you actually use.
+// No 'comments' property here = No more build errors.
 interface BlogCardProps {
   title: string;
   excerpt: string;
@@ -56,7 +58,7 @@ export default function BlogCard({
         </p>
 
         <div className="flex items-center justify-between mt-auto">
-          {/* Only Date displayed here - Comments completely removed */}
+          {/* Only Date displayed here - No mentions of comments */}
           <div className="flex items-center gap-2 text-[10px] sm:text-xs text-gray-400 font-medium">
             <span>{date}</span>
           </div>
