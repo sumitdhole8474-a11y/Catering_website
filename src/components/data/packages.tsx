@@ -1,0 +1,45 @@
+export const packages = [
+  {
+    title: "Standard Package",
+    price: 600,
+    featured: false,
+    features: [
+      "Breakfast (100 Pax)",
+      "Fresh Juice – Any Two",
+      "Main Course",
+      "Indian Bread – Any Two",
+      "Sweets – Any One",
+      "Live Station – Any One",
+      "Ice Cream – Any One",
+    ],
+  },
+  {
+    title: "Regular Package",
+    price: 700,
+    featured: true,
+    features: [
+      "Breakfast (100 Pax)",
+      "Fresh Juice – Any Two",
+      "Starter – Any Two",
+      "Main Course",
+      "Indian Bread – Any Two",
+      "Sweets – Any Two",
+      "Live Station – Any One",
+      "Ice Cream – Any One",
+    ],
+  },
+  {
+    title: "Premium Package",
+    price: 900,
+    featured: false,
+    features: [
+      "Breakfast (100 Pax)",
+      "Fresh Juice – Any Two",
+      "Mocktail – Any One",
+      "Starter – Any Two",
+      "Main Course",
+      "Indian Bread – Any Three",
+      "Ice Cream – Any Two",
+    ],
+  },
+];

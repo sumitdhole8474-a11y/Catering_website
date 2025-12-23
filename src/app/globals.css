@@ -1,0 +1,318 @@
+@import "tailwindcss";
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes fadeUpSoft {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Utility classes */
+.animate-fade-up {
+  animation: fadeUp 0.9s ease-out forwards;
+}
+
+.animate-fade-up-delay {
+  animation: fadeUpSoft 1s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+.animate-slide-right {
+  animation: slideRight 1s ease-out forwards;
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 1s ease-out forwards;
+}
+
+.animate-slide-left {
+  animation: slideLeft 1s ease-out forwards;
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 1s ease-out forwards;
+}
+
+.animate-slide-right {
+  animation: slideRight 1s ease-out forwards;
+}
+
+/* Location pin animation */
+.animate-pin {
+  animation: fadeUp 1.2s ease-out forwards;
+}
+/* Hide scrollbar but keep scroll */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.footer-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.footer-delay-1 { animation-delay: 0.2s; }
+.footer-delay-2 { animation-delay: 0.4s; }
+.footer-delay-3 { animation-delay: 0.6s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* TEXT ANIMATIONS */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about-title {
+  font-family: cursive;
+  font-size: 2.75rem;
+  color: #1f2937;
+  animation: fadeUp 0.8s ease-out forwards;
+}
+
+.about-text {
+  font-size: 1.05rem;
+  color: #374151;
+  line-height: 1.7;
+  opacity: 0;
+  animation: fadeUp 0.8s ease-out forwards;
+}
+
+.about-btn {
+  margin-top: 1.5rem;
+  background-color: #16a34a;
+  color: white;
+  padding: 0.9rem 2.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  opacity: 0;
+  animation: fadeUp 0.8s ease-out forwards;
+  transition: all 0.3s ease;
+}
+
+.about-btn:hover {
+  background-color: #15803d;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* STAGGER DELAYS */
+.delay-1 {
+  animation-delay: 0.2s;
+}
+
+.delay-2 {
+  animation-delay: 0.4s;
+}
+
+.delay-3 {
+  animation-delay: 0.6s;
+}
+
+/* IMAGE ANIMATION */
+@keyframes fadeScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.about-image {
+  position: relative;
+  width: 460px;
+  height: 460px;
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeScale 1s ease-out forwards;
+  animation-delay: 0.4s;
+  transition: all 0.5s ease;
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeUp {
+  animation: fadeUp 0.8s ease-out forwards;
+}
+.blog-content h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 2.5rem 0 1rem;
+  color: #0b1d39;
+}
+
+.blog-content p {
+  font-size: 1.125rem;
+  line-height: 1.9;
+  margin-bottom: 1.5rem;
+  color: #374151;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===============================
+   ANIMATIONS
+   =============================== */
+
+@layer utilities {
+  /* Fade In */
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-out both;
+  }
+
+  /* Slide Up */
+  .animate-slideUp {
+    animation: slideUp 0.5s ease-out both;
+  }
+
+  /* Scale In */
+  .animate-scaleIn {
+    animation: scaleIn 0.4s ease-out both;
+  }
+
+  /* Pulse Soft */
+  .animate-pulse-soft {
+    animation: pulseSoft 1.5s ease-in-out infinite;
+  }
+}
+
+/* ===============================
+   KEYFRAMES
+   =============================== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulseSoft {
+  0% {
+    box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(249, 115, 22, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(249, 115, 22, 0);
+  }
+}
