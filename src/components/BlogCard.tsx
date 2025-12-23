@@ -9,7 +9,7 @@ interface BlogCardProps {
   excerpt: string;
   image: string;
   date: string;
-  comments: number;
+  // REMOVED: comments property
   slug: string;
   delay?: number;
 }
@@ -19,7 +19,7 @@ export default function BlogCard({
   excerpt,
   image,
   date,
-  comments,
+  // REMOVED: comments from props
   slug,
   delay = 0,
 }: BlogCardProps) {
@@ -39,7 +39,6 @@ export default function BlogCard({
       {/* IMAGE */}
       <div className="relative h-64 w-full">
         <Image src={image} alt={title} fill className="object-cover" />
-        
       </div>
 
       {/* CONTENT */}
@@ -50,26 +49,20 @@ export default function BlogCard({
 
         <p className="text-gray-600 text-sm mb-6 line-clamp-3">{excerpt}</p>
 
-        {/* REPLACED READ MORE BUTTON AREA WITH DATE/COMMENTS & NEW READ MORE PLACEMENT */}
         <div className="flex items-center justify-between mt-auto">
-          {/* Date and Comments in place of old button */}
+          {/* Date only (Comments section fully removed) */}
           <div className="flex items-center gap-2 text-[10px] sm:text-xs text-gray-400 font-medium">
             <span>{date}</span>
-            <span className="text-gray-300"></span>
-            
           </div>
 
-          {/* Read More now on the right side */}
+          {/* Read More Link */}
           <Link
             href={`/blog/${slug}`}
-            className="inline-flex items-center gap-1 text-xs font-bold text-red-500 hover:text-orange-600 transition-colors uppercase tracking-wider"
-          >
+            className="inline-flex items-center gap-1 text-xs font-bold text-red-500 hover:text-orange-600 transition-colors uppercase tracking-wider" >
             Read More »
           </Link>
         </div>
       </div>
-      
-      {/* FOOTER REMOVED TO ELIMINATE EXTRA SPACE */}
     </article>
   );
 }

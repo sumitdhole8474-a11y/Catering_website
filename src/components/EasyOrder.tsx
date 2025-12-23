@@ -31,7 +31,7 @@ export default function EasyOrder() {
             <div key={index} className="group flex flex-col items-center">
               
               {/* IMAGE CONTAINER WITH PREMIUM HOVER */}
-              <div className="relative w-full h-[380px] overflow-hidden rounded-[2.5rem] border-4 border-white shadow-lg transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-orange-200 group-hover:-translate-y-3">
+              <div className="relative w-full h-380px overflow-hidden rounded-[2.5rem] border-4 border-white shadow-lg transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-orange-200 group-hover:-translate-y-3">
                 <img
                   src={item.img}
                   alt={item.title}
@@ -39,13 +39,13 @@ export default function EasyOrder() {
                 />
                 
                 {/* Subtle Overlay Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0b1d39]/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 .bg-gradient-to-t from-[#0b1d39]/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
                 {/* REMOVED: Floating Icon Tag section was here */}
               </div>
 
               {/* TITLE TAG STYLE */}
-              <div className="mt-[-25px] z-10 bg-white px-6 py-3 rounded-2xl border border-orange-100 shadow-md transform group-hover:scale-110 transition-transform duration-300">
+              <div className="mt-25px z-10 bg-white px-6 py-3 rounded-2xl border border-orange-100 shadow-md transform group-hover:scale-110 transition-transform duration-300">
                 <h4 className="font-black text-[12px] tracking-widest text-[#0b1d39] uppercase">
                   {item.title}
                 </h4>
